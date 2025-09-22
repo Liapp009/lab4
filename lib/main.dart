@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lab4/second_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      routes: {'/second': (_) => const SecondScreen()},
+      routes: {'/second': (_) => const SecondPage()},
       home: const Lab4Home(),
     );
   }
@@ -25,7 +26,8 @@ class _Lab4HomeState extends State<Lab4Home> {
 
   @override
   Widget build(BuildContext context) {
-    final imgPath = showFirst ? 'assets/flg' : 'assets/image2.jpg';
+    final imgPath =
+        showFirst ? 'assets/images/flg.jpg' : 'assets/images/22.jpg';
 
     return Scaffold(
       backgroundColor: Colors.grey[300],
@@ -41,13 +43,14 @@ class _Lab4HomeState extends State<Lab4Home> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            demoFitCard(Image.asset('assets/image1.jpg', fit: BoxFit.cover),
+            demoFitCard(Image.asset('assets/images/flq.jpg', fit: BoxFit.cover),
                 'BoxFit.cover'),
             const SizedBox(height: 12),
-            demoFitCard(Image.asset('assets/image1.jpg', fit: BoxFit.fill),
+            demoFitCard(Image.asset('assets/images/flq.jpg', fit: BoxFit.fill),
                 'BoxFit.fill'),
             const SizedBox(height: 12),
-            demoFitCard(Image.asset('assets/image1.jpg', fit: BoxFit.contain),
+            demoFitCard(
+                Image.asset('assets/images/flq.jpg', fit: BoxFit.contain),
                 'BoxFit.contain'),
             const SizedBox(height: 16),
             SizedBox(
@@ -56,7 +59,7 @@ class _Lab4HomeState extends State<Lab4Home> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Image.asset(imgPath, fit: BoxFit.cover),
+                  Image.asset('assets/images/flq.jpg', fit: BoxFit.cover),
                   Container(color: Colors.black.withOpacity(0.35)),
                   const Center(
                     child: Text('Welcome to Flutter',
@@ -138,18 +141,6 @@ class _Lab4HomeState extends State<Lab4Home> {
           ),
         ),
       ]),
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Text('Second Screen'), backgroundColor: Colors.teal),
-      body: const Center(child: Text('This is the second screen.')),
     );
   }
 }
